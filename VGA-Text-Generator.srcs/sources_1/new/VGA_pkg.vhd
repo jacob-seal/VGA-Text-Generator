@@ -90,7 +90,7 @@ end package VGA_pkg;
 
 package body VGA_pkg is
 
-    --accepts a single character and returns it as a string
+    --accepts a single character(from ASCII VALUES) and returns it as a string
     function char_to_str (
         char : in std_logic_vector(7 downto 0)) 
         return string is 
@@ -112,6 +112,60 @@ package body VGA_pkg is
             when X"37"      => r := "7";
             when X"38"      => r := "8";
             when X"39"      => r := "9";
+            when X"61"      => r := "a";
+            when X"62"      => r := "b";
+            when X"63"      => r := "c";
+            when X"64"      => r := "d";
+            when X"65"      => r := "e";
+            when X"66"      => r := "f";
+            when X"67"      => r := "g";
+            when X"68"      => r := "h";
+            when X"69"      => r := "i";
+            when X"6A"      => r := "j";
+            when X"6B"      => r := "k";
+            when X"6C"      => r := "l";
+            when X"6D"      => r := "m";
+            when X"6E"      => r := "n";
+            when X"6F"      => r := "o";
+            when X"70"      => r := "p";
+            when X"71"      => r := "q";
+            when X"72"      => r := "r";
+            when X"73"      => r := "s";
+            when X"74"      => r := "t";
+            when X"75"      => r := "u";
+            when X"76"      => r := "v";
+            when X"77"      => r := "w";
+            when X"78"      => r := "x";
+            when X"79"      => r := "y";
+            when X"7A"      => r := "z";
+            when X"41"      => r := "A";
+            when X"42"      => r := "B";
+            when X"43"      => r := "C";
+            when X"44"      => r := "D";
+            when X"45"      => r := "E";
+            when X"45"      => r := "F";
+            when X"47"      => r := "G";
+            when X"48"      => r := "H";
+            when X"49"      => r := "I";
+            when X"4A"      => r := "J";
+            when X"4B"      => r := "K";
+            when X"4C"      => r := "L";
+            when X"4D"      => r := "M";
+            when X"4E"      => r := "N";
+            when X"4F"      => r := "O";
+            when X"50"      => r := "P";
+            when X"51"      => r := "Q";
+            when X"52"      => r := "R";
+            when X"53"      => r := "S";
+            when X"54"      => r := "T";
+            when X"55"      => r := "U";
+            when X"56"      => r := "V";
+            when X"57"      => r := "W";
+            when X"58"      => r := "X";
+            when X"59"      => r := "Y";
+            when X"5A"      => r := "Z";
+            when X"20"      => r := " ";--space bar
+            when X"24"      => r := "$";--dollar sign
             when others     => r := "?";
         end case;
 
