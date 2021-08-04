@@ -1,4 +1,5 @@
 --GOAL: accept input from UART and display it on the VGA
+--currently works for a single character at a time
 
 library ieee;
 use ieee.std_logic_1164.all;

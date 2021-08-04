@@ -30,13 +30,15 @@ use work.commonPak.all;
 entity Pixel_On_Text is
 	generic(
 	   -- needed for init displayText, the default value 11 is just a random number
-       textLength: integer := 11;
-       x_pos : integer := 1; --x and y position to print the character
-       y_pos : integer := 1
+       textLength: integer := 11
 	);
 	port (
 		clk: in std_logic;
 		displayText: in string (1 to textLength) := (others => NUL);
+		-- top left corner of the text
+		--position: in point_2d := (0, 0);
+        x_pos : in integer;
+        y_pos : in integer;
 		-- current pixel postion
 		horzCoord: in integer;
 		vertCoord: in integer;

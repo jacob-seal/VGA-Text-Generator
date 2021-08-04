@@ -91,12 +91,12 @@ begin
   textElement1: entity work.Pixel_On_Text
         generic map (
         	textLength => i_char'length,
-            x_pos => g_x_pos,
-            y_pos => g_y_pos
         )
         port map(
         	clk => i_Clk,
         	displayText => w_string,
+            x_pos => g_x_pos,
+            y_pos => g_y_pos;
         	horzCoord => to_integer(unsigned(w_Col_Count)),
         	vertCoord => to_integer(unsigned(w_Row_Count)),
         	pixel => pixel -- result
