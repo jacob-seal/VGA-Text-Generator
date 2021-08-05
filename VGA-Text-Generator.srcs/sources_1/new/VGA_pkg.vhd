@@ -4,32 +4,37 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+library work;
+use work.bitmaps_pkg.all;
+
 package VGA_pkg is
 
   -----------------------------------------------------------------------------
-  -- Constants and bit patterns
+  -- Constants 
   -----------------------------------------------------------------------------
-   --array to test output of bit pattern. should output "test!" on the VGA
-  type bitmap_type is array (0 to 14) of std_logic_vector(0 to 49);
-	constant bitmap : bitmap_type := 
-    (
-        ("00000000000000000000000000000000000000000000000000"),
-        ("00000000000000000000000000000000000000000000000000"),
-        ("00000000000000000000000000000000000000000000000000"),
-        ("00000000000000000000000000000000000000000000000000"),
-        ("00000100000000000000000000000000001000000000110000"),
-        ("00000100000000000000000000000000001000000000110000"),
-        ("00001111000001111000000111100000011110000000110000"),
-        ("00000100000011001100001000010000001000000000110000"),
-        ("00000100000011111100001000000000001000000000110000"),
-        ("00000100000010000000001111110000001000000000110000"),
-        ("00000100000010000000000000010000001000000000000000"),
-        ("00000100000010000000000000010000001000000000110000"),
-        ("00000111000011111100001111100000001110000000110000"),
-        ("00000000000000000000000000000000000000000000000000"),
-        ("00000000000000000000000000000000000000000000000000")
-    );
-  
+   
+  type t_large_dicemap is array (1 to 6) of t_dice_bitmap;
+  constant c_dicemap : t_large_dicemap :=
+  (
+      dice_bitmap_1,
+      dice_bitmap_2,
+      dice_bitmap_3,
+      dice_bitmap_4,
+      dice_bitmap_5,
+      dice_bitmap_6
+  );
+
+  type t_small_dicemap is array (1 to 6) of t_small_dice_bitmap;
+  constant c_small_dicemap : t_small_dicemap :=
+  (
+      small_dice_bitmap_1,
+      small_dice_bitmap_2,
+      small_dice_bitmap_3,
+      small_dice_bitmap_4,
+      small_dice_bitmap_5,
+      small_dice_bitmap_6
+  );
+
   type t_stringmap is array (0 to 4) of string(1 to 10);
   constant stringmap : t_stringmap :=
   (
@@ -143,7 +148,7 @@ package body VGA_pkg is
             when X"43"      => r := "C";
             when X"44"      => r := "D";
             when X"45"      => r := "E";
-            when X"45"      => r := "F";
+            when X"46"      => r := "F";
             when X"47"      => r := "G";
             when X"48"      => r := "H";
             when X"49"      => r := "I";
