@@ -1,4 +1,16 @@
--- Package file containing all Constants and Components used for VGA synthesis
+----------------------------------------------------------------------------------
+--Developed By : Jacob Seal
+--sealenator@gmail.com
+--07-28-2021
+--filename: craps_types_pkg.vhd
+--package craps_types_pkg
+--
+--********************************************************************************
+--general notes:
+--Package file containing all Constants, Components, and functions 
+--      used for VGA synthesis.
+--********************************************************************************
+----------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -13,62 +25,50 @@ package VGA_pkg is
   -- Constants 
   -----------------------------------------------------------------------------
    
-  type t_large_dicemap is array (1 to 6) of t_dice_bitmap;
-  constant c_dicemap : t_large_dicemap :=
-  (
-      dice_bitmap_1,
-      dice_bitmap_2,
-      dice_bitmap_3,
-      dice_bitmap_4,
-      dice_bitmap_5,
-      dice_bitmap_6
-  );
+     --array containing all large dice bitmaps
+--   type t_large_dicemap is array (1 to 6) of t_large_dice_bitmap;
+--   constant c_dicemap : t_large_dicemap :=
+--   (
+--       large_dice_bitmap_1,
+--       large_dice_bitmap_2,
+--       large_dice_bitmap_3,
+--       large_dice_bitmap_4,
+--       large_dice_bitmap_5,
+--       large_dice_bitmap_6
+--   );
 
-  type t_small_dicemap is array (1 to 6) of t_small_dice_bitmap;
-  constant c_small_dicemap : t_small_dicemap :=
-  (
-      small_dice_bitmap_1,
-      small_dice_bitmap_2,
-      small_dice_bitmap_3,
-      small_dice_bitmap_4,
-      small_dice_bitmap_5,
-      small_dice_bitmap_6
-  );
 
-  type t_stringmap is array (0 to 4) of string(1 to 10);
-  constant stringmap : t_stringmap :=
-  (
-    ("Empty     "),
-    ("Test      "),
-    ("Text      "),
-    ("Generation"),
-    ("On the VGA")
-  );
+    --test text generation on the VGA
+    type t_stringmap is array (0 to 4) of string(1 to 10);
+        constant stringmap : t_stringmap :=
+        (
+            ("Empty     "),
+            ("Test      "),
+            ("Text      "),
+            ("Generation"),
+            ("On the VGA")
+        );
 
-  type t_x_pos_map is array (0 to 4) of integer;
-  constant c_x_pos_map : t_x_pos_map :=
-  (
-    (50),
-    (100),
-    (300),
-    (400),
-    (500)
-  );
+    --x and y position arrays
+    type t_x_pos_map is array (0 to 4) of integer;
+        constant c_x_pos_map : t_x_pos_map :=
+        (
+            (50),
+            (100),
+            (300),
+            (400),
+            (500)
+        );
 
-  type t_y_pos_map is array (0 to 4) of integer;
-  constant c_y_pos_map : t_y_pos_map :=
-  (
-    (50),
-    (100),
-    (200),
-    (300),
-    (400)
-  );
-  
-
-  -----------------------------------------------------------------------------
-  -- Numeric bit patterns for output to VGA for scorekeeping
-  -----------------------------------------------------------------------------
+    type t_y_pos_map is array (0 to 4) of integer;
+        constant c_y_pos_map : t_y_pos_map :=
+        (
+            (50),
+            (100),
+            (200),
+            (300),
+            (400)
+        );
   
 
 
@@ -175,39 +175,40 @@ package body VGA_pkg is
         end case;
 
         return r;
-    --accepts an integer 0 through 9 and returns it as a string value
+    
     end char_to_str;        
 
-    
+    --accepts an integer 0 through 12 and returns it as a string value
     function int_to_str (
         int : in integer) 
         return string is
 
         variable a : natural := 0;
-        variable r : string(1 to 1);
+        variable r : string(1 to 2);
 
     begin
         a := abs (int);
 
         case a is
-            when 0    => r := "0";
-            when 1    => r := "1";
-            when 2    => r := "2";
-            when 3    => r := "3";
-            when 4    => r := "4";
-            when 5    => r := "5";
-            when 6    => r := "6";
-            when 7    => r := "7";
-            when 8    => r := "8";
-            when 9    => r := "9";
-            when others => r := "?";
+            when 0    => r := "00";
+            when 1    => r := "01";
+            when 2    => r := "02";
+            when 3    => r := "03";
+            when 4    => r := "04";
+            when 5    => r := "05";
+            when 6    => r := "06";
+            when 7    => r := "07";
+            when 8    => r := "08";
+            when 9    => r := "09";
+            when 10    => r := "10";
+            when 11    => r := "11";
+            when 12    => r := "12";
+            when others => r := "??";
         end case;
 
-        --if (int < 0) then
-        --    r := '-' & r(1 to 1);
-        --end if;
-
-        return r;
+        
+        	return r;
+         
     end int_to_str;
     
 end package body VGA_pkg;

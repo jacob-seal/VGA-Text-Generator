@@ -1,4 +1,5 @@
 -- This module is designed for 640x480 with a 25 MHz input clock.
+--Generates signals at Horizontal and Vertical Boundaries used to synchronize VGA
 
 library ieee;
 use ieee.std_logic_1164.all;
